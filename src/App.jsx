@@ -1,35 +1,64 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [element, setElement] = useState(false)
+    const [audioFile, setAudioFile] = useState(null)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const telegram = window.Telegram.WebApp
+    const user = telegram?.initDataUnsafe?.user
+
+    const handleClick = () => {
+        const telegram = window.Telegram
+        if (telegram?.WebApp?.HapticFeedback) {
+            telegram.WebApp.HapticFeedback.impactOccurred('medium')
+        }
+
+        console.log(123)
+        setElement(true)
+    }
+
+    const AudioUploader = () => {
+        const handleFileChange = (event) => {
+            const file = event.target.files[0]
+            if (file) {
+                setAudioFile(file)
+            }
+        }
+
+        return (
+            <div>
+                <input
+                    type="file"
+                    accept="audio/*"
+                    onChange={handleFileChange}
+                />
+                {audioFile && (
+                    <div>
+                        <p>файл: {audioFile.name}</p>
+                        <audio controls>
+                            <source
+                                src={URL.createObjectURL(audioFile)}
+                                type={audioFile.type}
+                            />
+                            null
+                        </audio>
+                    </div>
+                )}
+            </div>
+        )
+    }
+
+    return (
+        <div className="scrollable-element">
+            {user?.id}
+            <button onClick={handleClick}>Click me</button>
+            <button className="btn" onClick={() => setElement(false)}>
+                hide
+            </button>
+            {element && <div>hide</div>}
+            <AudioUploader />
+        </div>
+    )
 }
 
 export default App
