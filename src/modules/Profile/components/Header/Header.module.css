@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 85%;
+}
+
+.avatar {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    border: 3px dashed #b7de2e;
+}
+
+.avatarSkeleton {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    border: 3px dashed #b7de2e;
+    background-color: rgba(0, 0, 0, 0.153);
+}
+
+.name {
+    font-size: 2rem;
+    margin-right: 10%;
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

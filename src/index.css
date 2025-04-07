@@ -12,11 +12,11 @@
 
 @font-face {
     font-family: 'Pixelify';
-    src: url('./assets/fonts/PixelifySans-VariableFont_wght.ttf');
+    src: url('./assets/fonts/PixelifySans-Regular.woff2');
 }
 
 html {
-    font-size: 20px;
+    font-size: 10px;
     font-family: 'Pixelify', sans-serif;
 }
 
@@ -72,4 +72,16 @@ button,
 textarea,
 select {
     font: inherit;
+}
+
+.home-loader {
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
