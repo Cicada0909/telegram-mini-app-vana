@@ -14,7 +14,12 @@ const CollectingFiles = () => {
         clearFiles,
     } = useAudioStore()
 
+    const telegram = window.Telegram
+
     const handleContainerClick = () => {
+        if (telegram?.WebApp?.HapticFeedback) {
+            telegram.WebApp.HapticFeedback.impactOccurred('medium')
+        }
         if (files.length < 5) {
             fileInputRef.current.click()
         } else {
@@ -23,6 +28,9 @@ const CollectingFiles = () => {
     }
 
     const handleFileChange = (e) => {
+        if (telegram?.WebApp?.HapticFeedback) {
+            telegram.WebApp.HapticFeedback.impactOccurred('medium')
+        }
         const selectedFiles = Array.from(e.target.files)
         const audioFiles = selectedFiles.filter((file) =>
             file.type.startsWith('audio/')
@@ -94,6 +102,9 @@ const CollectingFiles = () => {
     }
 
     const handleRemoveFile = (indexToRemove) => {
+        if (telegram?.WebApp?.HapticFeedback) {
+            telegram.WebApp.HapticFeedback.impactOccurred('light')
+        }
         if (
             playingIndex === indexToRemove &&
             audioRefs.current[indexToRemove]
@@ -106,6 +117,9 @@ const CollectingFiles = () => {
     }
 
     const handlePlayToggle = (index) => {
+        if (telegram?.WebApp?.HapticFeedback) {
+            telegram.WebApp.HapticFeedback.impactOccurred('light')
+        }
         const currentAudio = audioRefs.current[index]
         if (!currentAudio) return
 
@@ -122,6 +136,9 @@ const CollectingFiles = () => {
     }
 
     const handleSendFiles = () => {
+        if (telegram?.WebApp?.HapticFeedback) {
+            telegram.WebApp.HapticFeedback.impactOccurred('heavy')
+        }
         alert('Файлы отправлены: ' + files.map((f) => f.file.name).join(', '))
 
         clearFiles()
