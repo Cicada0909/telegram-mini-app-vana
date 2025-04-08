@@ -139,7 +139,7 @@ const CollectingFiles = () => {
         if (telegram?.WebApp?.HapticFeedback) {
             telegram.WebApp.HapticFeedback.impactOccurred('heavy')
         }
-        alert('Файлы отправлены: ' + files.map((f) => f.file.name).join(', '))
+        alert('Files sent')
 
         clearFiles()
         audioRefs.current = []
