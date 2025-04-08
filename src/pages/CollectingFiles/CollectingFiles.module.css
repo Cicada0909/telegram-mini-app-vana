@@ -145,13 +145,13 @@ ul {
     display: flex;
     align-items: center;
     gap: 12%;
-    width: 32%;
+    width: 33%;
 }
 
 .playButton {
     all: unset;
     color: black;
-    width: 50%;
+    width: 53%;
 }
 
 .fileName {
