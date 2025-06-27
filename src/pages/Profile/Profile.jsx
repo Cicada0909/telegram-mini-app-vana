@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './profile.module.css'
 import Header from '../../modules/Profile/components/Header/Header'
 

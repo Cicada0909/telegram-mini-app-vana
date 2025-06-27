@@ -179,6 +179,9 @@ const CollectingFiles = () => {
                                         3. Audio length should not exceed 2
                                         minutes
                                     </li>
+                                    <a href="https://wa.me/+77009455977">
+                                        ссылка
+                                    </a>
                                 </ul>
                             </div>
                         </div>

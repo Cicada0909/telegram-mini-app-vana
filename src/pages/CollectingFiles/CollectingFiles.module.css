@@ -35,6 +35,9 @@
 .fileList {
     width: 80%;
 }
+.test {
+    display: flex;
+}
 
 .uploud::before {
     content: '';
