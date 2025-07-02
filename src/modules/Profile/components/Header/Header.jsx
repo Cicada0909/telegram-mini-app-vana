@@ -12,8 +12,6 @@ const Header = () => {
             setUser(tgUser)
         }
     }, [])
-    //test
-    //test
 
     return (
         <div className={styles.header}>
